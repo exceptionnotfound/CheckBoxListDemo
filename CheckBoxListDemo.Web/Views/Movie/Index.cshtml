@@ -1,0 +1,49 @@
+﻿@model CheckBoxListDemo.Web.ViewModels.Movie.MovieIndexVM
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Add")
+</p>
+<table>
+    <tr>
+        <th></th>
+        <th>
+            Title
+        </th>
+        <th>
+            Release Date
+        </th>
+        <th>
+            Running Time
+        </th>
+        <th>
+            Genres
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Movies)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID })
+            </td>
+            <td>
+                <strong>@item.Title</strong>
+            </td>
+            <td>
+                @item.ReleaseDate.ToShortDateString()
+            </td>
+            <td>
+                @item.RunningTime Minutes
+            </td>
+            <td>
+                @Html.Partial("Genre", item.Genres.ToList())
+            </td>
+        </tr>
+    }
+
+</table>

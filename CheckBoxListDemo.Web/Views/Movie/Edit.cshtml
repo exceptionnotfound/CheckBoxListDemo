@@ -1,0 +1,29 @@
+﻿@model CheckBoxListDemo.Web.ViewModels.Movie.EditMovieVM
+@{
+    ViewBag.Title = "Edit";
+}
+@Html.ActionLink("Back to Movies", "Index")
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        <div>
+            @Html.LabelFor(x => x.Title)
+            @Html.TextBoxFor(x => x.Title)
+        </div>
+        <div>
+            @Html.LabelFor(x => x.ReleaseDate)
+            @Html.EditorFor(x => x.ReleaseDate)
+        </div>
+        <div>
+            @Html.LabelFor(x => x.RunningTimeMinutes)
+            @Html.TextBoxFor(x => x.RunningTimeMinutes)
+        </div>
+        <div>
+            @Html.EditorFor(x => x.Genres)
+        </div>
+        @Html.HiddenFor(x => x.ID)
+        <input type="submit" value="Go!" />
+    </div>
+}

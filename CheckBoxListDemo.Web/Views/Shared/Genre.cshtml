@@ -1,0 +1,19 @@
+﻿@model List<CheckBoxListDemo.Web.DataAccess.Model.Genre>
+
+@{
+    var display = "";
+    for (int i = 0; i < 3 && i < Model.Count; i++)
+    {
+        display += Model[i].Name + ", ";
+    }
+    if (display.Contains(","))
+    {
+        display = display.Remove(display.LastIndexOf(","));
+    }
+    if (Model.Count > 3)
+    {
+        display = display + ", " + (Model.Count - 3).ToString() + " more.";
+    }
+}
+
+<span>@display</span>
